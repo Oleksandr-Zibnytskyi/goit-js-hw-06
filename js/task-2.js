@@ -1,3 +1,24 @@
-const getUsersWithFriend = (users, friendName) => {
-  return users.filter(user => user.friends.includes(friendName));
-};
+class Storage {
+  #items;
+
+  constructor(initialItems) {
+        this.#items = initialItems;
+    }
+
+  getItems() {
+    return this.#items;
+  }
+
+  addItem(newItem) {
+        this.#items.push(newItem);
+    }
+
+
+  removeItem(itemToRemove) {
+    const index = this.#items.indexOf(itemToRemove);
+    if (index !== -1) {
+      this.#items.splice(index, 1);
+    }
+  }
+}
+
